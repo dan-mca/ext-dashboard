@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TodoItemContainer = styled.div`
+export const TaskItemContainer = styled.div`
     border: solid 1px grey;
     border-radius: 5px;
     display: flex;
@@ -9,16 +9,16 @@ export const TodoItemContainer = styled.div`
     margin: 0.25rem 0;
 `
 
-export const TodoItemTitle = styled.p`
+export const TaskItemTitle = styled.p`
     margin: 0;
     padding: 0;
 `
-export const TodoItemButtonGroup = styled.div`
+export const TaskItemButtonGroup = styled.div`
 
 `
-export const TodoItemButtonLink = styled.a`
+export const TaskItemButtonLink = styled.a`
 
 `
-export const TodoItemButtonIcon = styled.i`
+export const TaskItemButtonIcon = styled.i`
 
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoItem from '../TodoItem/TodoItem';
+import TaskItem from '../TaskItem/TaskItem';
 import { CardContainer, CardBody, CardHeader, CardTitle, CardIcon, CardContent } from './Card.styled';
 
 const Card = (props) => {
@@ -13,9 +13,9 @@ const Card = (props) => {
                 {icon}
             </CardHeader>
             <CardContent>
-                <TodoItem name='item 1'/>
-                <TodoItem name='item 2'/>
-                <TodoItem name='item 3'/>
+                <TaskItem name='item 1'/>
+                <TaskItem name='item 2'/>
+                <TaskItem name='item 3'/>
             </CardContent>
         </CardBody>
     </CardContainer>
