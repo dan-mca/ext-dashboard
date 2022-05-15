@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const CardContainer = styled.section`
     width: calc((100vw/12)*3);
-    height: 200px;
+    height: auto;
     background: white;
-`
+    min-height: calc((100vh/12)*5);
+    border-radius: 5px;
+    `
 
 export const CardBody = styled.div`
     padding: 1rem;
