@@ -5,10 +5,9 @@ import {HeaderContainer, HeaderTitle, HeaderDateTimeContainer, HeaderTime, Heade
 const user = 'Dan'
 
 let today = new Date()
-let currentHour = today.getHours()
-let amOrPm = currentHour < 12 ? 'AM' : 'PM';
-let currentTime = `${currentHour}:${today.getMinutes()} ${amOrPm}`
-let currentDate = moment().format("dddd, MMMM D YYYY")
+let currentHour = moment().format("HH")
+let currentTime = moment().format("HH:mm A")
+let currentDate = moment().format("dddd D MMMM")
 
 let welcomeMessage = ''
 if (currentHour < 12) {
@@ -18,7 +17,6 @@ if (currentHour < 12) {
 } else {
     welcomeMessage = "Good evening, " + user
 }
-
 
 const Header = () => {
   return (
