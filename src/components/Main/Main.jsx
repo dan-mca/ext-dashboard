@@ -6,7 +6,6 @@ const Main = () => {
   
   return (
     <MainContainer>
-        Main
         <Card title='To do' showIcon={false} />
     </MainContainer>
   )

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TaskItemContainer, TaskItemTitle, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon } from './TaskItem.styled';
+import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon } from './TaskItem.styled';
 
 const TaskItem = (props) => {
     const { name } = props;
@@ -7,16 +7,16 @@ const TaskItem = (props) => {
   return (
     <>
         <TaskItemContainer>
-            <TaskItemTitle>
-                <input type="checkbox" aria-label="Checkbox for following text input"></input>
-                <input type="text" class="form-control" aria-label="Text input with checkbox"></input>
-            </TaskItemTitle>
+            <TaskItemInputContainer>
+                <TaskItemInput type="checkbox" aria-label="Checkbox for following text input"/>
+                <TaskItemInputCheckbox type="text" defaultValue="item1" aria-label="Text input with checkbox"/>
+            </TaskItemInputContainer>
             <TaskItemButtonGroup>
                 <TaskItemButtonLink href="#">
-                    <TaskItemButtonIcon>edit</TaskItemButtonIcon>
+                    <TaskItemButtonIcon icon="clarity:edit-line" color="black"></TaskItemButtonIcon>
                 </TaskItemButtonLink>
-                <TaskItemButtonLink href="#">
-                    <TaskItemButtonIcon>del</TaskItemButtonIcon>
+                <TaskItemButtonLink href="#">  
+                    <TaskItemButtonIcon icon="fluent:delete-20-regular" color="#C5221F"></TaskItemButtonIcon>
                 </TaskItemButtonLink>
             </TaskItemButtonGroup>
         </TaskItemContainer>
