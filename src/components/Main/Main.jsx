@@ -1,12 +1,12 @@
 import React from 'react';
-import Card from '../Card/Card';
+import TaskCard from '../TaskCard/TaskCard';
 import {MainContainer} from './Main.styled';
 
 const Main = () => {
   
   return (
     <MainContainer>
-        <Card title='To do' showIcon={false} />
+        <TaskCard title='To do' showIcon={false} />
     </MainContainer>
   )
 }
