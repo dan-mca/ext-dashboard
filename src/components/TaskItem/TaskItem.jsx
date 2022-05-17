@@ -2,14 +2,18 @@ import React from 'react'
 import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon } from './TaskItem.styled';
 
 const TaskItem = (props) => {
-    const { name } = props;
+    const { name, id, updatedTask} = props;
+
+    const handleChange = (e) => {
+        updatedTask({id: e.target.getAttribute('data-id'), text: e.target.value})
+    }
 
   return (
     <>
         <TaskItemContainer>
             <TaskItemInputContainer>
                 <TaskItemInput type="checkbox" aria-label="Checkbox for following text input"/>
-                <TaskItemInputCheckbox type="text" defaultValue="item1" aria-label="Text input with checkbox"/>
+                <TaskItemInputCheckbox type="text" data-id={id} defaultValue={name} onChange={handleChange} aria-label="Text input with checkbox"/>
             </TaskItemInputContainer>
             <TaskItemButtonGroup>
                 <TaskItemButtonLink href="#">
