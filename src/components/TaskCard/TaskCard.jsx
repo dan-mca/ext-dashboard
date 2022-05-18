@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { v4 as uuid } from 'uuid';
 import AddTask from '../AddTask/AddTask';
 import TaskItem from '../TaskItem/TaskItem';
 import { TaskCardContainer, TaskCardBody, TaskCardHeader, TaskCardTitle, TaskCardIcon, TaskCardContent } from './TaskCard.styled';
@@ -14,23 +15,33 @@ const TaskCard = (props) => {
     }
   })
 
+  const unique_id = uuid();
+
   const createTaskObject = (task) => {
-    setTasks([...tasks, {id: tasks.length + 1, text: task.trim(), checked: false}]);
+    setTasks([...tasks, {id: unique_id, text: task.trim(), checked: false}]);
   }
 
   const updatedTask = (editedTask) => {
     const tasksCopy = [...tasks]
-    const updatedArr = tasksCopy.map(task => task.id === +editedTask.id
+    const updatedArr = tasksCopy.map(task => task.id === editedTask.id
       ? {...task, text: editedTask.text}
       : task
       )
     setTasks(updatedArr)
   }
+
+  const deleteTask = (task) => {
+    const tasksCopy = [...tasks]
+    const indexOfTask = tasksCopy.findIndex(object => {
+      return object.id === task.id
+    })
+    tasksCopy.splice(indexOfTask,1)
+    setTasks(tasksCopy)
+  }
   
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    console.log(tasks)
   }, [tasks])
 
   
@@ -47,7 +58,7 @@ const TaskCard = (props) => {
                 { tasks.length === 0 ? <p>All tasks completed</p>
                 :
                 tasks.map((task) => (
-                  <TaskItem name={task.text} key={task.id} id={task.id} updatedTask={updatedTask} />
+                  <TaskItem name={task.text} key={task.id} id={task.id} updatedTask={updatedTask} deleteTask={deleteTask} />
                 ))}
             </TaskCardContent>
         </TaskCardBody>

@@ -2,10 +2,16 @@ import React from 'react'
 import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon } from './TaskItem.styled';
 
 const TaskItem = (props) => {
-    const { name, id, updatedTask} = props;
-
+    const { name, id, updatedTask, deleteTask} = props;
+    
     const handleChange = (e) => {
         updatedTask({id: e.target.getAttribute('data-id'), text: e.target.value})
+    }
+
+    const handleClick = (e) => {
+        if (e.type === 'click') {
+            deleteTask({id, text: name})
+        }
     }
 
   return (
@@ -20,7 +26,7 @@ const TaskItem = (props) => {
                     <TaskItemButtonIcon icon="clarity:edit-line" color="black"></TaskItemButtonIcon>
                 </TaskItemButtonLink>
                 <TaskItemButtonLink href="#">  
-                    <TaskItemButtonIcon icon="fluent:delete-20-regular" color="#C5221F"></TaskItemButtonIcon>
+                    <TaskItemButtonIcon onClick={handleClick} icon="fluent:delete-20-regular" color="#C5221F"></TaskItemButtonIcon>
                 </TaskItemButtonLink>
             </TaskItemButtonGroup>
         </TaskItemContainer>
