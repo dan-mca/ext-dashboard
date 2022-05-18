@@ -2,16 +2,21 @@ import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 
 export const AddTaskContainer = styled.section`
-    border: solid 1px grey;
-    border-radius: 5px;
+    border-radius: 3px;
     display: flex;
     justify-content: space-between;
     padding: 0.5rem;
     margin: 0.25rem 0;
+    background-color: #E5E5E5;
 `
 export const AddTaskInput = styled.input`
     border: none;
     width: 100%;
+    background-color: #E5E5E5;
+    
+    &::placeholder {
+        color: gray;
+    }
 
     :focus {
         outline: none;

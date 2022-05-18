@@ -5,7 +5,7 @@ import TaskItem from '../TaskItem/TaskItem';
 import { TaskCardContainer, TaskCardBody, TaskCardHeader, TaskCardTitle, TaskCardIcon, TaskCardContent, Tab, ButtonGroup } from './TaskCard.styled';
 
 const TaskCard = (props) => {
-  const { title, showIcon } = props;
+  const { title } = props;
   const [tasks, setTasks] = useState(() => {
     const savedtasks = localStorage.getItem('tasks')
     if (savedtasks) {

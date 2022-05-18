@@ -6,7 +6,7 @@ const Main = () => {
   
   return (
     <MainContainer>
-        <TaskCard title='To do' showIcon={false} />
+        <TaskCard title='Tasks' />
     </MainContainer>
   )
 }

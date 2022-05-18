@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon,TaskItemButtonIconText } from './TaskItem.styled';
+import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon,TaskItemButtonIconText, TaskItemText, TaskItemTextStrike } from './TaskItem.styled';
 
 const TaskItem = (props) => {
     const { name, id, updatedTask, deleteTask, checkedTask, checked} = props;
@@ -36,9 +36,9 @@ const TaskItem = (props) => {
                 { !checked && isEditing ?
                     <TaskItemInput type="text" data-id={id} defaultValue={name} onChange={handleChange} aria-label="Text input with checkbox"/>
                     : !isEditing ?
-                    <span>{name}</span>
+                    <TaskItemText>{name}</TaskItemText>
                     :
-                    <del>{name}</del>
+                    <TaskItemTextStrike>{name}</TaskItemTextStrike>
                 }
             </TaskItemInputContainer>
             <TaskItemButtonGroup>

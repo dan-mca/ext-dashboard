@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AddTaskContainer, AddTaskInput, AddTaskButton, AddTaskButtonIcon, AddTaskButtonText } from './AddTask.styled'
 
 const AddTask = (props) => {
