@@ -29,3 +29,20 @@ export const TaskCardContent = styled.div`
     display: flex;
     flex-direction: column;
 `
+export const Tab = styled.button`
+  cursor: pointer;
+  opacity: 0.6;
+  background: white;
+  border: 0;
+  outline: 0;
+  ${({ active }) =>
+    active &&
+    `
+    border-bottom: 2px solid black;
+    opacity: 1;
+  `}
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+`;

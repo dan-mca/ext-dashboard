@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { v4 as uuid } from 'uuid';
 import AddTask from '../AddTask/AddTask';
 import TaskItem from '../TaskItem/TaskItem';
-import { TaskCardContainer, TaskCardBody, TaskCardHeader, TaskCardTitle, TaskCardIcon, TaskCardContent } from './TaskCard.styled';
+import { TaskCardContainer, TaskCardBody, TaskCardHeader, TaskCardTitle, TaskCardIcon, TaskCardContent, Tab, ButtonGroup } from './TaskCard.styled';
 
 const TaskCard = (props) => {
   const { title, showIcon } = props;
@@ -14,6 +14,8 @@ const TaskCard = (props) => {
       return [];
     }
   })
+  const tabs = ['To do', 'Completed']
+  const [active, setActive] = useState(tabs[0])
 
   const unique_id = uuid();
 
@@ -25,6 +27,15 @@ const TaskCard = (props) => {
     const tasksCopy = [...tasks]
     const updatedArr = tasksCopy.map(task => task.id === editedTask.id
       ? {...task, text: editedTask.text}
+      : task
+      )
+    setTasks(updatedArr)
+  }
+
+  const checkedTask = (editedTask) => {
+    const tasksCopy = [...tasks]
+    const updatedArr = tasksCopy.map(task => task.id === editedTask.id
+      ? {...task, checked: editedTask.checked}
       : task
       )
     setTasks(updatedArr)
@@ -44,23 +55,42 @@ const TaskCard = (props) => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks])
 
-  
-  const icon = showIcon ? <TaskCardIcon>icon</TaskCardIcon> : <TaskCardIcon>hide icon</TaskCardIcon>;
   return (
     <TaskCardContainer>
         <TaskCardBody>
             <TaskCardHeader>
                 <TaskCardTitle>{title}</TaskCardTitle>
-                {icon}
             </TaskCardHeader>
-            <TaskCardContent>
+            <ButtonGroup>
+              {tabs.map(tab => (
+                <Tab key={tab} active={active == tab} onClick={() => setActive(tab)} >
+                  {tab}
+                </Tab>
+              ))}
+            </ButtonGroup>
+            { active == tabs[0] ? 
+              <TaskCardContent>
                 <AddTask addTask={createTaskObject}/>
                 { tasks.length === 0 ? <p>All tasks completed</p>
                 :
                 tasks.map((task) => (
-                  <TaskItem name={task.text} key={task.id} id={task.id} updatedTask={updatedTask} deleteTask={deleteTask} />
+                  task.checked == false ?
+                  <TaskItem name={task.text} key={task.id} id={task.id} updatedTask={updatedTask} deleteTask={deleteTask} checkedTask={checkedTask} />
+                  : null
                 ))}
-            </TaskCardContent>
+              </TaskCardContent>
+              :
+              <TaskCardContent>
+                { tasks.length === 0 ? <p>All tasks completed</p>
+                :
+                tasks.map((task) => (
+                  task.checked == true ?
+                  <TaskItem name={task.text} key={task.id} id={task.id} updatedTask={updatedTask} deleteTask={deleteTask} checkedTask={checkedTask} checked={task.checked} />
+                  : null
+                ))}
+              </TaskCardContent>
+            }
+
         </TaskCardBody>
     </TaskCardContainer>
   )
