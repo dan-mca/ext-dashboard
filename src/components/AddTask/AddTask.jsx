@@ -14,6 +14,13 @@ const AddTask = (props) => {
     }
   }
 
+  const handleClick = (e) => {
+    if (inputValue.length > 0) {
+      addTask(inputValue)
+    }
+    setInputValue("");
+  }
+
 
   return (
     <AddTaskContainer>
@@ -25,7 +32,7 @@ const AddTask = (props) => {
       >
       </AddTaskInput>
       <AddTaskButton>
-        <AddTaskButtonIcon icon="carbon:add-filled" color="#4caf50" aria-hidden="true"></AddTaskButtonIcon>
+        <AddTaskButtonIcon icon="carbon:add-filled" color="#4caf50" onClick={handleClick} aria-hidden="true"></AddTaskButtonIcon>
         <AddTaskButtonText>add task</AddTaskButtonText>
       </AddTaskButton>
     </AddTaskContainer>
