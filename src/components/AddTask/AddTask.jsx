@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AddTaskContainer, AddTaskInput, AddTaskButton } from './AddTask.styled'
+import { AddTaskContainer, AddTaskInput, AddTaskButton, AddTaskButtonIcon, AddTaskButtonText } from './AddTask.styled'
 
 const AddTask = (props) => {
   const { addTask } = props;
@@ -24,7 +24,10 @@ const AddTask = (props) => {
         value={inputValue}
       >
       </AddTaskInput>
-      <AddTaskButton>+</AddTaskButton>
+      <AddTaskButton>
+        <AddTaskButtonIcon icon="carbon:add-filled" color="#4caf50" aria-hidden="true"></AddTaskButtonIcon>
+        <AddTaskButtonText>add task</AddTaskButtonText>
+      </AddTaskButton>
     </AddTaskContainer>
   )
 }

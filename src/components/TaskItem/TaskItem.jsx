@@ -1,5 +1,5 @@
 import React from 'react'
-import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon } from './TaskItem.styled';
+import { TaskItemContainer, TaskItemInputContainer, TaskItemInput, TaskItemInputCheckbox, TaskItemButtonGroup, TaskItemButtonLink, TaskItemButtonIcon,TaskItemButtonIconText } from './TaskItem.styled';
 
 const TaskItem = (props) => {
     const { name, id, updatedTask, deleteTask} = props;
@@ -23,10 +23,12 @@ const TaskItem = (props) => {
             </TaskItemInputContainer>
             <TaskItemButtonGroup>
                 <TaskItemButtonLink href="#">
-                    <TaskItemButtonIcon icon="clarity:edit-line" color="black"></TaskItemButtonIcon>
+                    <TaskItemButtonIcon icon="clarity:edit-line" color="black" aria-hidden="true"></TaskItemButtonIcon>
+                    <TaskItemButtonIconText>edit</TaskItemButtonIconText>
                 </TaskItemButtonLink>
                 <TaskItemButtonLink href="#">  
-                    <TaskItemButtonIcon onClick={handleClick} icon="fluent:delete-20-regular" color="#C5221F"></TaskItemButtonIcon>
+                    <TaskItemButtonIcon onClick={handleClick} icon="fluent:delete-20-regular" color="#C5221F" aria-hidden="true" ></TaskItemButtonIcon>
+                    <TaskItemButtonIconText>delete</TaskItemButtonIconText>
                 </TaskItemButtonLink>
             </TaskItemButtonGroup>
         </TaskItemContainer>
