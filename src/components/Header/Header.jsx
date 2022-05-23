@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
-import { gapi } from 'gapi-script';
-import {HeaderContainer, HeaderTitle, HeaderDateTimeContainer, HeaderTime, HeaderDate, HeaderUserContainer, HeaderUserLink, HeaderUserImage} from './Header.styled';
-import Login from '../Login/Login';
-import Logout from '../Logout/Logout';
-
-// const user = 'Dan'
-const clientId = '1045690708969-nbqk0aja43udogblpmntcmqna2ufqd53.apps.googleusercontent.com';
+import {HeaderContainer, HeaderTitle, HeaderDateTimeContainer, HeaderTime, HeaderDate } from './Header.styled';
+import UserButton from '../UserButton/UserButton';
 
 let currentHour = moment().format("HH")
 let currentTime = moment().format("HH:mm A")
 let currentDate = moment().format("dddd D MMMM")
 
-
 const Header = () => {
-    const [profileImage, setProfileImage] = useState('')
     const [user, setUser] = useState([]);
 
     const givenName = user.givenName
@@ -38,24 +31,8 @@ const Header = () => {
             }
         }
     
-    useEffect(() => {
-    function start() {
-        gapi.auth2.init({
-        clientId: clientId,
-        scope: ''
-        })
-    }
 
-    gapi.load('client:auth2', start)
-    })
-
-    const updateProfileImage = (url) => {
-    setProfileImage(url)
-    }
-
-    const googleUser = (userObject) => {
-        setUser(userObject)
-    }
+    const updateUser = (userObject) => setUser(userObject)
 
     return (
         <HeaderContainer>
@@ -64,16 +41,7 @@ const Header = () => {
                 <HeaderTime>{currentTime}</HeaderTime>
                 <HeaderDate>{currentDate}</HeaderDate>
             </HeaderDateTimeContainer>
-            <HeaderUserContainer>
-                <HeaderUserLink href="#" role="button">
-                { profileImage ? <HeaderUserImage src={profileImage} alt="profile image" /> : 'non image' }    
-                </HeaderUserLink>
-            </HeaderUserContainer>
-            <Login profileImageUrl={updateProfileImage} updateUser={googleUser} />
-            <Logout removeProfileImage={updateProfileImage}/>
-            
-
-            
+            <UserButton googleUserObject={updateUser}/>
         </HeaderContainer>
   )
 }

@@ -1,46 +1,14 @@
 import styled from 'styled-components';
 import { Icon } from '@iconify/react';
 
-export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem calc((100vw/12));
-`;
-
-export const HeaderTitle = styled.h1`
-    width: 80%;
-`
-
-export const HeaderSettings = styled.div`
-    width: 5%;
-`
-
-export const HeaderDateTimeContainer = styled.div`
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-`
-
-export const HeaderTime = styled.p`
-    font-size: 26px;
-    margin: 0;
-`
-
-export const HeaderDate = styled.p`
-    font-size: 16px;
-    margin: 0;
-`
-
-export const HeaderUserContainer = styled.div`
+export const UserButtonUserContainer = styled.div`
     width: 7rem;
     height: auto;
     display: flex;
     align-items: center;
 `
 
-export const HeaderUserLink = styled.button`
+export const UserButtonUserLink = styled.button`
     width: 100%;
     margin: 0;
     display: flex;
@@ -50,7 +18,7 @@ export const HeaderUserLink = styled.button`
     background: none;
 `
 
-export const HeaderProfileImage = styled.img`
+export const UserButtonProfileImage = styled.img`
     border-radius: 100%;
     width: 2rem;
 
@@ -59,7 +27,7 @@ export const HeaderProfileImage = styled.img`
     }
 `
 
-export const HeaderUserImage = styled(Icon)`
+export const UserButtonUserImage = styled(Icon)`
     border-radius: 100%;
     width: 2rem;
     height: 2rem;
@@ -69,7 +37,7 @@ export const HeaderUserImage = styled(Icon)`
     }
 `
 
-export const HeaderUserMenu = styled.div`
+export const UserButtonUserMenu = styled.div`
     width: auto;
     height: auto;
     padding: 0.5rem;
