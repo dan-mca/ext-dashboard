@@ -6,7 +6,7 @@ export const SearchCardContainer = styled.section`
     border-radius: 3px;
     padding: 1rem;
     background-color: #fff;
-    padding: 0.25rem 1rem;
+    padding: 0.25rem 0;
     margin: 1rem 0;
     display: flex;
     justify-content: space-between;
@@ -27,7 +27,7 @@ export const SearchCardInput = styled.input`
 export const SearchCardLink = styled.a`
     width: 5%;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
 `
 

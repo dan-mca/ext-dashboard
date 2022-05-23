@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TaskCardContainer = styled.section`
-    width: calc((100vw/12)*3);
+    width: calc((100vw/12)*2.65);
     height: auto;
     padding: 1rem;
     background: white;

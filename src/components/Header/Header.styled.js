@@ -36,3 +36,18 @@ export const HeaderDate = styled.p`
     margin: 0;
 `
 
+export const HeaderUserContainer = styled.div`
+`
+
+export const HeaderUserLink = styled.a`
+`
+
+export const HeaderUserImage = styled.img`
+    border-radius: 100%;
+    width: 2rem;
+
+    :hover {
+        cursor: pointer;
+    }
+`
+

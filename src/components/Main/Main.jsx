@@ -1,14 +1,19 @@
 import React from 'react';
+import MailCard from '../MailCard/MailCard';
 import SearchCard from '../SearchCard/SearchCard';
 import TaskCard from '../TaskCard/TaskCard';
-import {MainContainer} from './Main.styled';
+import { MainContainer, MainCardsContainer } from './Main.styled';
+
 
 const Main = () => {
-  
+
   return (
     <MainContainer>
         <SearchCard />
-        <TaskCard title='Tasks' />
+        <MainCardsContainer>
+          <TaskCard title='Tasks' />
+          <MailCard />
+        </MainCardsContainer>
     </MainContainer>
   )
 }
